@@ -4,18 +4,18 @@ import PageBanner from "../../components/PageBanner/PageBanner";
 export default function FacebookFriendRequestPage() {
   return (
     <>
-      <PageBanner pageTitle="Facebook Friend Requests" />
-      <div className="fb-fr-rq__container">
-        <div className="fb-fr-rq__safety-helper">
-          <h2 className="fb-fr-rq__safety-helper-title">
-            Friend Request Safety Helper
-          </h2>
-          <p className="fb-fr-rq__safety-helper-description">
+      <PageBanner pageTitle="Facebook Friend Requests Scam" />
+      <div className="w-full max-w-2xl mx-auto space-y-4 p-4">
+        <div className="bg-gray-50 p-4 rounded-lg mb-6">
+          <h2 className="text-lg font-bold mb-2">Friend Request Safety Helper</h2>
+          <p className="text-sm">
             Not sure whether to accept a friend request? We'll help you spot the
             difference between real people and fake profiles. Think of this like
             having a wise friend helping you decide who to trust online.
           </p>
         </div>
+      </div>
+      <div className="fb-fr-rq__container">
         <div className="fb-fr-rq fb-fr-rq--high-risk">
           <div className="fb-fr-rq__profile">
             <div className="fb-fr-rq__profile-header">

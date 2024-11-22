@@ -5,7 +5,7 @@ import userImage from "../../assets/images/team/user.png";
 const WhatsAppPage = () => {
   return (
     <>
-      <PageBanner pageTitle="whatApp Message From UnKnown User" />
+      <PageBanner pageTitle="WhatsApp Message Scam" />
       <div className="whatsapp-app  flex items-center justify-center p-4">
         <div className="whatsapp-container w-full max-w-md bg-white rounded-xl overflow-hidden shadow-lg">
           <div className="whatsapp-header flex justify-between items-center p-3">
