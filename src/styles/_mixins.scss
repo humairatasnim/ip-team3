@@ -1,0 +1,24 @@
+@use "./variables" as *;
+
+// Mixin for mobile media queries
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+// Mixin for tablet media queries
+@mixin tablet {
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+
+// Mixin for animations
+@mixin transition($time) {
+	-webkit-transition: all $time ease-out 0s;
+	-moz-transition: all $time ease-out 0s;
+	-ms-transition: all $time ease-out 0s;
+	-o-transition: all $time ease-out 0s;
+	transition: all $time ease-out 0s;
+}

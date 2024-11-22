@@ -1,0 +1,58 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/global";
+
+.ip-hero {
+  background: $primary-color;
+  padding-top: 11.25rem;
+  padding-bottom: 5.625rem;
+
+  @include tablet {
+    padding-top: 10rem;
+  }
+
+  @include mobile {
+    padding-top: 8.125rem;
+  }
+  &__content {
+    max-width: 48.75rem;
+    margin: auto;
+    margin-bottom: 1.875rem;
+  }
+
+  &__title {
+    color: $white;
+    font-weight: 700;
+    font-size: 2.8125rem;
+    line-height: 3.75rem;
+    text-align: center;
+    margin-bottom: 1.875rem;
+
+    @include tablet {
+      font-size: 2.375rem;
+      line-height: 3.125rem;
+    }
+
+    @include mobile {
+      font-size: 1.625rem;
+      line-height: 2.375rem;
+    }
+  }
+
+  &__desc {
+    font-weight: normal;
+    font-size: 1.25rem;
+    line-height: 2.1875rem;
+    text-align: center;
+    color: $white;
+    opacity: 0.8;
+    max-width: 37.5rem;
+    margin: auto;
+    margin-bottom: 1.875rem;
+
+    @include mobile {
+      font-size: 1rem;
+      line-height: 1.875rem;
+    }
+  }
+}

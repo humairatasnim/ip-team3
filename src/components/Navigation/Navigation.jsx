@@ -1,22 +1,70 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../Navigation/Navigation.scss"
+import "./Navigation.scss";
 
 function Navigation() {
   return (
-    <nav className="nav">
-      <ul className="nav__list">
-        <li className="nav__item">
-          <Link className="nav__link" to="/facebook-post">Facebook Post</Link>
-        </li>
-        <li className="nav__item">
-          <Link className="nav__link" to="/facebook-friend-request">Facebook Friend Request</Link>
-        </li>
-        <li className="nav__item">
-          <Link className="nav__link" to="/whatsapp">WhatsApp</Link>
-        </li>
-      </ul>
-    </nav>
+    <header className="ip-header">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <nav className="navbar navbar-expand-lg">
+              <Link to="/" className="navbar-brand">
+                Scripters
+              </Link>
+              <button className="navbar-toggler">
+                <span className="toggler-icon"> </span>
+                <span className="toggler-icon"> </span>
+                <span className="toggler-icon"> </span>
+              </button>
+
+              <div className="navbar-collapse">
+                <ul id="nav" className="navbar-nav mx-auto">
+                  <li className="nav-item">
+                    <Link to="/" className="ip-menu-scroll">
+                      Home
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <a className="ip-menu-scroll" href="#features">
+                      Features
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="ip-menu-scroll" href="#team">
+                      Team
+                    </a>
+                  </li>
+                  <li className="nav-item nav-item-has-children">
+                    <a href="#"> See it in action </a>
+                    <ul className="ip-submenu">
+                      <li className="ip-submenu-item">
+                        <Link to="/facebook-post" className="ip-submenu-link">
+                          Facebook Posts
+                        </Link>
+                      </li>
+                      <li className="ip-submenu-item">
+                        <Link
+                          to="/facebook-friend-request"
+                          className="ip-submenu-link"
+                        >
+                          Facebook Friend Request
+                        </Link>
+                      </li>
+                      <li className="ip-submenu-item">
+                        <Link to="/whatsapp" className="ip-submenu-link">
+                          WhatsApp
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 }
 
