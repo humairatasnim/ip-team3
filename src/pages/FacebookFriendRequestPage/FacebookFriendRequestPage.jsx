@@ -1,6 +1,7 @@
 import React from "react";
 import "./FacebookFriendRequestPage.scss";
 import PageBanner from "../../components/PageBanner/PageBanner";
+import avatarImage from "/src/assets/images/avatar.png";
 export default function FacebookFriendRequestPage() {
   return (
     <>
@@ -21,16 +22,14 @@ export default function FacebookFriendRequestPage() {
             <div className="fb-fr-rq__profile-header">
               <div className="fb-fr-rq__profile-picture">
                 <img
-                  src="https://via.placeholder.com/50"
+                  src={avatarImage}
                   alt="James Morrison Profile"
                   className="fb-fr-rq__profile-img"
                 />
               </div>
               <div className="fb-fr-rq__profile-info">
                 <h3>James Morrison</h3>
-                <p className="fb-fr-rq__risk-level fb-fr-rq__risk-level--high">
-                  ⚠️ High Risk
-                </p>
+                <button class="friend-badge flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium border bg-red-100 text-red-800 border-red-200 ">Warning: High Risk</button>
                 <div className="fb-fr-rq__button-container">
                   <button className="fb-fr-rq__ai-button">
                     🌟 Learn Why With AI Assistant
@@ -75,16 +74,14 @@ export default function FacebookFriendRequestPage() {
             <div className="fb-fr-rq__profile-header">
               <div className="fb-fr-rq__profile-picture">
                 <img
-                  src="https://via.placeholder.com/50"
+                  src={avatarImage}
                   alt="Sarah Williams Profile"
                   className="fb-fr-rq__profile-img"
                 />
               </div>
               <div className="fb-fr-rq__profile-info">
                 <h3>Sarah Williams</h3>
-                <p className="fb-fr-rq__risk-level fb-fr-rq__risk-level--low">
-                  ✅ Low Risk
-                </p>
+                <button class="friend-badge flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium border bg-green-100 text-green-800 border-green-200 ">Safe: Low Risk</button>
                 <div className="fb-fr-rq__button-container">
                   <button className="fb-fr-rq__ai-button">
                     🌟 Learn Why With AI Assistant

@@ -1,11 +1,17 @@
 import { useState } from "react";
 import PageBanner from "../../components/PageBanner/PageBanner";
 import avatarImage from "/src/assets/images/avatar.png";
+import speakerIcon from "../../assets/images/team/speaker.svg";
 import "./FacebookPostPage.scss";
 
 function FacebookPostPage() {
   const [isToggleOn, setIsToggleOn] = useState(true);
   const [visiblePopover, setVisiblePopover] = useState(null);
+
+  const handleReadAloud = (text) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(utterance);
+  };
 
   const [posts] = useState([
     {
@@ -20,7 +26,7 @@ function FacebookPostPage() {
       comments: 156,
       shares: 892,
       riskLevel: "high",
-      warningTitle: "⚠️ This looks like it could be a scam. Here's why:",
+      warningTitle: "⚠️ This looks like it could be a scam.",
       flags: [
         "Claims to be from Mark Zuckerberg - Remember, real Facebook giveaways never ask you to share posts or comment",
         "Rushing you to act within 24 hours - Just like pushy salespeople, scammers often pressure you to act quickly before you can think it through",
@@ -41,7 +47,7 @@ function FacebookPostPage() {
       comments: 78,
       shares: 23,
       riskLevel: "high",
-      warningTitle: "🛑 Warning Signs of an Investment Scam:",
+      warningTitle: "🛑 This is an investment scam.",
       flags: [
         "Promises 'guaranteed' profits - Just like in Las Vegas, there's no such thing as guaranteed money in investing",
         "Asks you to send private messages - Scammers want to get you away from public view where others might warn you",
@@ -62,7 +68,7 @@ function FacebookPostPage() {
       comments: 14,
       shares: 8,
       riskLevel: "low",
-      warningTitle: "✅ This looks like a legitimate business post because:",
+      warningTitle: "✅ This looks like a legitimate business post",
       flags: [
         "Gives a real street address you can visit - You can drive by and verify it exists",
         "Provides a real phone number you can call - You can check if it's a working business",
@@ -113,7 +119,8 @@ function FacebookPostPage() {
             posts with you.
           </p>
           <hr className="divider"></hr>
-          <p className="text-sm"><strong>How is my data being used?</strong> Rest assured, your data
+          <p className="text-sm">
+            <strong>How is my data being used?</strong> Rest assured, your data
             stays private. We don't collect or store any personal information
             while analyzing posts for potential scams. You can turn off the scam
             detector anytime using the toggle button below.
@@ -167,6 +174,13 @@ function FacebookPostPage() {
               {/* Popover */}
               {visiblePopover === post.id && (
                 <div className="absolute z-10 mt-2 p-4 bg-white border rounded-lg shadow-lg post-popover">
+                  <button onClick={() => handleReadAloud(post.warningTitle)}>
+                    <img
+                      className="speaker-icon"
+                      src={speakerIcon}
+                      alt="speaker"
+                    />
+                  </button>
                   <div className="text-sm font-medium mb-3">
                     {post.warningTitle}
                   </div>
@@ -181,7 +195,9 @@ function FacebookPostPage() {
                     ))}
                   </ul>
                   <div className="mt-4 pt-3 border-t border-gray-200 text-base text-gray-900">
-                    <p className="text-sm"><strong>Friendly Tip:</strong> {post.safetyTip}</p>
+                    <p className="text-sm">
+                      <strong>Friendly Tip:</strong> {post.safetyTip}
+                    </p>
                   </div>
                 </div>
               )}
