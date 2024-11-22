@@ -4,3 +4,24 @@
 .body {
     background-color: #f2f4f7;
 }
+
+.divider {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.detector-toggle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.p-heading {
+    margin-bottom: 0.5rem;
+}
+
+.post-popover {
+    width: 400px;
+    margin-left: 300px;
+}

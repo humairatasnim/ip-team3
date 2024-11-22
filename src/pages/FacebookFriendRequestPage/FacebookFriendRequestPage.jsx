@@ -1,36 +1,35 @@
 import React from "react";
 import "./FacebookFriendRequestPage.scss";
 import PageBanner from "../../components/PageBanner/PageBanner";
+import avatarImage from "/src/assets/images/avatar.png";
 export default function FacebookFriendRequestPage() {
   return (
     <>
-      <PageBanner pageTitle="Facebook Friend Requests" />
-      <div className="fb-fr-rq__container">
-        <div className="fb-fr-rq__safety-helper">
-          <h2 className="fb-fr-rq__safety-helper-title">
-            Friend Request Safety Helper
-          </h2>
-          <p className="fb-fr-rq__safety-helper-description">
+      <PageBanner pageTitle="Facebook Friend Requests Scam" />
+      <div className="w-full max-w-2xl mx-auto space-y-4 p-4">
+        <div className="bg-gray-50 p-4 rounded-lg mb-6">
+          <h2 className="text-lg font-bold mb-2">Friend Request Safety Helper</h2>
+          <p className="text-sm">
             Not sure whether to accept a friend request? We'll help you spot the
             difference between real people and fake profiles. Think of this like
             having a wise friend helping you decide who to trust online.
           </p>
         </div>
+      </div>
+      <div className="fb-fr-rq__container">
         <div className="fb-fr-rq fb-fr-rq--high-risk">
           <div className="fb-fr-rq__profile">
             <div className="fb-fr-rq__profile-header">
               <div className="fb-fr-rq__profile-picture">
                 <img
-                  src="https://via.placeholder.com/50"
+                  src={avatarImage}
                   alt="James Morrison Profile"
                   className="fb-fr-rq__profile-img"
                 />
               </div>
               <div className="fb-fr-rq__profile-info">
                 <h3>James Morrison</h3>
-                <p className="fb-fr-rq__risk-level fb-fr-rq__risk-level--high">
-                  ⚠️ High Risk
-                </p>
+                <button class="friend-badge flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium border bg-red-100 text-red-800 border-red-200 ">Warning: High Risk</button>
                 <div className="fb-fr-rq__button-container">
                   <button className="fb-fr-rq__ai-button">
                     🌟 Learn Why With AI Assistant
@@ -75,16 +74,14 @@ export default function FacebookFriendRequestPage() {
             <div className="fb-fr-rq__profile-header">
               <div className="fb-fr-rq__profile-picture">
                 <img
-                  src="https://via.placeholder.com/50"
+                  src={avatarImage}
                   alt="Sarah Williams Profile"
                   className="fb-fr-rq__profile-img"
                 />
               </div>
               <div className="fb-fr-rq__profile-info">
                 <h3>Sarah Williams</h3>
-                <p className="fb-fr-rq__risk-level fb-fr-rq__risk-level--low">
-                  ✅ Low Risk
-                </p>
+                <button class="friend-badge flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium border bg-green-100 text-green-800 border-green-200 ">Safe: Low Risk</button>
                 <div className="fb-fr-rq__button-container">
                   <button className="fb-fr-rq__ai-button">
                     🌟 Learn Why With AI Assistant

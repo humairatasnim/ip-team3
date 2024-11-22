@@ -1,6 +1,5 @@
 .whatsapp-app {
   background-image: url("data:image/png;base64,...");
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .whatsapp-container {
@@ -20,8 +19,9 @@
   }
 
   .spam-warning {
-    background-color: #ff5e5e;
-    color: white;
+    background-color:rgb(254, 226, 226);
+    color: rgb(153, 27, 27);
+    border: 1px solid rgb(222, 226, 230);
     padding: 8px;
     border-radius: 8px;
     margin-top: 8px;

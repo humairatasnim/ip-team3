@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import dots from "/src/assets/images/team/dots.svg";
-import team01 from "/src/assets/images/team/team-01.jpeg";
-import team02 from "/src/assets/images/team/team-02.jpeg";
-import team03 from "/src/assets/images/team/team-03.jpeg";
-import team04 from "/src/assets/images/team/team-04.jpeg";
+import team01 from "/src/assets/images/team/team-01.png";
+import team02 from "/src/assets/images/team/team-02.png";
+import team03 from "/src/assets/images/team/team-03.png";
+import team04 from "/src/assets/images/team/team-04.png";
 import "./Team.scss";
 
 function Team() {

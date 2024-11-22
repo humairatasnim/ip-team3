@@ -1,13 +1,23 @@
 import { useState } from "react";
 import PageBanner from "../../components/PageBanner/PageBanner";
+import avatarImage from "/src/assets/images/avatar.png";
+import speakerIcon from "../../assets/images/team/speaker.svg";
 import "./FacebookPostPage.scss";
 
 function FacebookPostPage() {
+  const [isToggleOn, setIsToggleOn] = useState(true);
+  const [visiblePopover, setVisiblePopover] = useState(null);
+
+  const handleReadAloud = (text) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(utterance);
+  };
+
   const [posts] = useState([
     {
       id: 1,
       author: "Mark Thompson",
-      avatar: "/api/placeholder/40/40",
+      avatar: avatarImage,
       timeAgo: "2 hours ago",
       privacy: "Public",
       content:
@@ -16,13 +26,11 @@ function FacebookPostPage() {
       comments: 156,
       shares: 892,
       riskLevel: "high",
-      warningTitle: "⚠️ This looks like it could be a scam. Here's why:",
+      warningTitle: "⚠️ This looks like it could be a scam.",
       flags: [
         "Claims to be from Mark Zuckerberg - Remember, real Facebook giveaways never ask you to share posts or comment",
         "Rushing you to act within 24 hours - Just like pushy salespeople, scammers often pressure you to act quickly before you can think it through",
         "Says 'my cousin got paid' - Scammers often claim someone they know got money, but you can't verify this",
-        "Promises free money for sharing - Think about it: would a billion-dollar company really give away money just for sharing a post?",
-        "Uses lots of attention-grabbing emojis and CAPITAL LETTERS - This is like someone yelling to get your attention at a store",
       ],
       safetyTip:
         "Remember: If something sounds too good to be true, it probably is. Real giveaways don't require you to share posts or type 'DONE'.",
@@ -30,7 +38,7 @@ function FacebookPostPage() {
     {
       id: 2,
       author: "Crypto Wealth Expert",
-      avatar: "/api/placeholder/40/40",
+      avatar: avatarImage,
       timeAgo: "6 hours ago",
       privacy: "Public",
       content:
@@ -39,12 +47,10 @@ function FacebookPostPage() {
       comments: 78,
       shares: 23,
       riskLevel: "high",
-      warningTitle: "🛑 Warning Signs of an Investment Scam:",
+      warningTitle: "🛑 This is an investment scam.",
       flags: [
         "Promises 'guaranteed' profits - Just like in Las Vegas, there's no such thing as guaranteed money in investing",
-        "Claims to make thousands daily - If it were this easy to make money, everyone would be doing it",
         "Asks you to send private messages - Scammers want to get you away from public view where others might warn you",
-        "Says 'limited spots available' - This is like a traveling salesman saying 'buy now or miss out!' It's pressure to make you act without thinking",
         "Claims 'zero risk' - Every real investment has some risk. Anyone saying otherwise isn't being truthful",
       ],
       safetyTip:
@@ -53,7 +59,7 @@ function FacebookPostPage() {
     {
       id: 3,
       author: "Downtown Coffee Shop",
-      avatar: "/api/placeholder/40/40",
+      avatar: avatarImage,
       timeAgo: "1 hour ago",
       privacy: "Public",
       content:
@@ -62,11 +68,9 @@ function FacebookPostPage() {
       comments: 14,
       shares: 8,
       riskLevel: "low",
-      warningTitle: "✅ This looks like a legitimate business post because:",
+      warningTitle: "✅ This looks like a legitimate business post",
       flags: [
-        "Offers a reasonable discount - 50% off is a normal sale you might see at any store",
         "Gives a real street address you can visit - You can drive by and verify it exists",
-        "Lists normal business hours - Just like any regular store",
         "Provides a real phone number you can call - You can check if it's a working business",
         "Has a proper website - You can visit their webpage to learn more",
       ],
@@ -75,7 +79,7 @@ function FacebookPostPage() {
     },
   ]);
 
-  const RiskBadge = ({ level, className = "" }) => {
+  const RiskBadge = ({ level, className = "", onClick }) => {
     const badges = {
       high: {
         style: "bg-red-100 text-red-800 border-red-200",
@@ -94,25 +98,46 @@ function FacebookPostPage() {
     const badge = badges[level];
 
     return (
-      <div
+      <button
+        onClick={onClick}
         className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium border ${badge.style} ${className}`}
       >
         {badge.text}
-      </div>
+      </button>
     );
   };
 
   return (
     <>
-      <PageBanner pageTitle="Facebook Posts" />
-      <div className="w-full max-w-2xl mx-auto space-y-4 p-4 bg-gray-50">
-        <div className="bg-blue-50 p-4 rounded-lg mb-6">
+      <PageBanner pageTitle="Facebook Posts Scam Detection" />
+      <div className="w-full max-w-2xl mx-auto space-y-4 p-4">
+        <div className="bg-gray-50 p-4 rounded-lg mb-6">
           <h2 className="text-lg font-bold mb-2">Facebook Safety Helper</h2>
-          <p>
+          <p className="text-sm">
             We'll help you spot posts that might be scams. Think of this like
             having a friendly neighbor who knows about online safety looking at
             posts with you.
           </p>
+          <hr className="divider"></hr>
+          <p className="text-sm">
+            <strong>How is my data being used?</strong> Rest assured, your data
+            stays private. We don't collect or store any personal information
+            while analyzing posts for potential scams. You can turn off the scam
+            detector anytime using the toggle button below.
+          </p>
+          <div className="detector-toggle">
+            <p className="detector-toggle__text font-bold">AI Scam Detector</p>
+            <button
+              onClick={() => setIsToggleOn(!isToggleOn)}
+              className={`px-4 my-4 py-2 text-sm font-semibold rounded-lg ${
+                isToggleOn
+                  ? "bg-green-500 text-white"
+                  : "bg-gray-300 text-gray-700"
+              }`}
+            >
+              {isToggleOn ? "On" : "Off"}
+            </button>
+          </div>
         </div>
 
         {posts.map((post) => (
@@ -135,9 +160,47 @@ function FacebookPostPage() {
                     </div>
                   </div>
                 </div>
-                <RiskBadge level={post.riskLevel} />
+                {isToggleOn && (
+                  <RiskBadge
+                    level={post.riskLevel}
+                    onClick={() =>
+                      setVisiblePopover(
+                        visiblePopover === post.id ? null : post.id
+                      )
+                    }
+                  />
+                )}
               </div>
-
+              {/* Popover */}
+              {visiblePopover === post.id && (
+                <div className="absolute z-10 mt-2 p-4 bg-white border rounded-lg shadow-lg post-popover">
+                  <button onClick={() => handleReadAloud(post.warningTitle)}>
+                    <img
+                      className="speaker-icon"
+                      src={speakerIcon}
+                      alt="speaker"
+                    />
+                  </button>
+                  <div className="text-sm font-medium mb-3">
+                    {post.warningTitle}
+                  </div>
+                  <ul className="space-y-3">
+                    {post.flags.map((flag, index) => (
+                      <li
+                        key={index}
+                        className="text-base text-gray-500 flex items-start gap-2"
+                      >
+                        <span className="text-sm">• {flag}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-4 pt-3 border-t border-gray-200 text-base text-gray-900">
+                    <p className="text-sm">
+                      <strong>Friendly Tip:</strong> {post.safetyTip}
+                    </p>
+                  </div>
+                </div>
+              )}
               {/* Post Content */}
               <div className="mt-3 whitespace-pre-line">{post.content}</div>
 
@@ -163,27 +226,6 @@ function FacebookPostPage() {
                 <button className="flex-1 py-2 hover:bg-gray-100 rounded-lg">
                   Share
                 </button>
-              </div>
-
-              {/* Risk Analysis */}
-              <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-                <div className="text-lg font-medium mb-3">
-                  {post.warningTitle}
-                </div>
-                <ul className="space-y-3">
-                  {post.flags.map((flag, index) => (
-                    <li
-                      key={index}
-                      className="text-base text-gray-700 flex items-start gap-2"
-                    >
-                      <span className="mt-1">•</span>
-                      <span>{flag}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-4 pt-3 border-t border-gray-200 text-base text-blue-800">
-                  <strong>Friendly Tip:</strong> {post.safetyTip}
-                </div>
               </div>
             </div>
           </div>
