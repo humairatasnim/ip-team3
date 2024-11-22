@@ -45,10 +45,10 @@ function Navigation() {
                       </li>
                       <li className="ip-submenu-item">
                         <Link
-                          to="/facebook-message"
+                          to="/facebook-friend-request"
                           className="ip-submenu-link"
                         >
-                          Facebook Message
+                          Facebook Friend Request
                         </Link>
                       </li>
                       <li className="ip-submenu-item">
