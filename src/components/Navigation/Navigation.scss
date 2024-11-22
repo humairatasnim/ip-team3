@@ -1,0 +1,30 @@
+@use "../../styles/global" as *;
+
+.nav {
+    background-color: #0063BF;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    &__list {
+        text-align: none;
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        padding: 0;
+    }
+
+    &__item {
+        padding-inline: 2rem;
+        font-size: 1rem;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: white;
+        
+    }
+}
+

@@ -1,18 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../Navigation/Navigation.scss"
 
 function Navigation() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/facebook-post">Facebook Post</Link>
+    <nav className="nav">
+      <ul className="nav__list">
+        <li className="nav__item">
+          <Link className="nav__link" to="/facebook-post">Facebook Post</Link>
         </li>
-        <li>
-          <Link to="/facebook-message">Facebook Message</Link>
+        <li className="nav__item">
+          <Link className="nav__link" to="/facebook-friend-request">Facebook Friend Request</Link>
         </li>
-        <li>
-          <Link to="/whatsapp">WhatsApp</Link>
+        <li className="nav__item">
+          <Link className="nav__link" to="/whatsapp">WhatsApp</Link>
         </li>
       </ul>
     </nav>
