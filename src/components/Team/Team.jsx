@@ -58,7 +58,7 @@ function Team() {
           <div className="row">
             {teamMembers.map((member, index) => (
               <div className="col-xl-3 col-lg-3 col-sm-6" key={index}>
-                <div className="ip-single-team fadeInUp">
+                <div className="ip-single-team">
                   <div className="ip-team-image-wrapper">
                     <div className="ip-team-image">
                       <img src={member.image} alt={`${member.name}`} />

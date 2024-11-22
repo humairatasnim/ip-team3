@@ -10,7 +10,7 @@ function Navigation() {
           <div className="col-lg-12">
             <nav className="navbar navbar-expand-lg">
               <Link to="/" className="navbar-brand">
-                Scripters6
+                Scripters
               </Link>
               <button className="navbar-toggler">
                 <span className="toggler-icon"> </span>
@@ -36,7 +36,7 @@ function Navigation() {
                     </a>
                   </li>
                   <li className="nav-item nav-item-has-children">
-                    <a href="#"> Demo </a>
+                    <a href="#"> See it in action </a>
                     <ul className="ip-submenu">
                       <li className="ip-submenu-item">
                         <Link to="/facebook-post" className="ip-submenu-link">
