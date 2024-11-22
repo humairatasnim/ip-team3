@@ -1,6 +1,7 @@
 import React from "react";
 import "./WhatsAppPage.scss";
 import PageBanner from "../../components/PageBanner/PageBanner";
+import userImage from "../../assets/images/team/user.png";
 const WhatsAppPage = () => {
   return (
     <>
@@ -9,15 +10,14 @@ const WhatsAppPage = () => {
         <div className="whatsapp-container w-full max-w-md bg-white rounded-xl overflow-hidden shadow-lg">
           <div className="whatsapp-header flex justify-between items-center p-3">
             <div className="flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="white">
-                <path d="M12.016 2.25c-5.25 0-9.75 4.5-9.75 9.75 0 1.688.469 3.281 1.36 4.688l-1.407 4.124 4.265-1.329A9.733 9.733 0 0 0 12.016 21c5.25 0 9.75-4.5 9.75-9.75s-4.5-9.75-9.75-9.75zm4.594 13.641c-.188.516-1.032.961-1.688 1.079-.446.094-1.031.141-1.687-.141-1.079-.422-2.579-1.407-3.844-2.672-1.032-1.032-1.781-2.25-2.25-3.375-.328-.844.047-1.547.422-1.922.375-.375.797-.609 1.172-.609.141 0 .281.047.422.047.328.094.703.75.844 1.079.188.422.703 1.219.469 1.547-.141.187-.469.328-.797.422.047.141.141.281.235.422.609.938 1.36 1.688 2.297 2.25.234.141.469.234.703.328.282-.234.516-.516.797-.75.281-.235.562-.141.797.094.234.234.984.938.984 1.219 0 .281-.141.562-.281.843z" />
-              </svg>
-              <span className="ml-2 font-semibold">WhatsApp</span>
+              <div className="w-9 h-9 rounded-full overflow-hidden border border-gray-300 bg-white">
+                <img
+                  src={userImage}
+                  alt={""}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="ml-2 font-semibold">Unknown</span>
             </div>
             <div className="flex space-x-4">
               <svg
@@ -46,6 +46,11 @@ const WhatsAppPage = () => {
                   Congratulations! You've won a free iPhone! Click this link to
                   claim your prize immediately!
                 </p>
+                <a
+                  href=""
+                  className="text-blue-500 hover:text-blue-700 underline">
+                  Click here
+                </a>
               </div>
             </div>
 
